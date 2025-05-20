@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7B58F5;
+}
+
+body .wrapper{
+    height: 100vh;
+    width: 50%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+body .wrapper .button{
+    width: 330px;
+    height: 140px;
+    border: 1px solid rgba(128, 128, 128, 0.356);
+    border-radius: 80px;
+    box-shadow: 0 0 10px gray;
+    padding: 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.button #sun{
+    font-size: 80px;
+    font-weight: 100;
+    color: #fcde7c;
+    position: absolute;
+    left: 20px;
+    animation: shake 5s ease infinite;
+}
+
+.button #moon{
+    font-size: 80px;
+    font-weight: 100;
+    color: #6f9bbd;
+    position: absolute;
+    right: 20px;
+    animation: hop 5s ease infinite;
+}
+
+body .wrapper .button .disk{
+    width: 120px;
+    height: 120px;
+    background-color: #fef4f4;
+    border: 1px solid gray;
+    border-radius: 50%;
+    box-shadow: 0 0 10px gray;
+    cursor: pointer;
+    z-index: 999;
+}
+
+/* Day mode */
+@container style(--is-Day: true) {
+    .wrapper{
+        background-color: #f6d365;
+        background: linear-gradient(0deg, #f6d365,#fda085);
+    }
+    .wrapper .button{
+        background: linear-gradient(0deg, #f6d365,#fda085);
+        justify-content: flex-end;
+    }
+}
+
+/* Night mode */
+@container style(--is-Day: false){
+    .wrapper{
+        background-color: #002E5D;
+        background: linear-gradient(to right,#2774ae,#002E5D,#002E5D);
+    }
+    .wrapper .button{
+        background: linear-gradient(to right,#2774ae,#002E5D,#002E5D);
+        justify-content: flex-start;
+    }
+}
+
+/* animations */
+@keyframes shake {
+    0%,100%{
+        transform: rotate(-30deg);
+    }50%{
+        transform: rotate(30deg);
+    }
+}
+
+@keyframes hop {
+    0%{
+        transform: translateY(0);
+    } 25% {
+        transform: translateY(-10px);
+    } 50% {
+        transform: translateY(0);
+    } 75% {
+        transform: translateY(-7px);
+    } 100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
